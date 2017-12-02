@@ -12,17 +12,22 @@
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('inicio');
 });
 
-Route::get('/sobre-nos', function () {
-    return view('home');
-})->name('sobre');
+Auth::routes();
 
-Route::get('/plano/{id}', function ($id) {
-    return view('home');
-})->name('plano');
+Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/precos', function () {
-    return view('site.precos');
-})->name('precos');
+//Route::get('/pacientes', 'PacientesController@index')->name('pacientes');
+Route::post('/pacientes/form/save', 'PacientesController@adicionar')->name('pacientes_form_save');
+
+Route::get('/consultas', function () {
+    return view('admin.consultas');
+})->name('consultas');
+
+Route::get('/pacientes', function () {
+    return view('admin.pacientes');
+})->name('pacientes');
+
+

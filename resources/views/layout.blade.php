@@ -43,7 +43,7 @@
 								<li><a href="#precos" class="link-kumya"><span data-letters="Precos">Precos</span></a></li>
 								<li><a href="blog.html" class="link-kumya"><span data-letters="Blog">Blog</span></a></li>		
 								<li><a href="#contato" class="link-kumya"><span data-letters="Contato">Contato</span></a></li>
-								<li><a href="contact.html" class="link-kumya active"><span data-letters="Contato">Entrar</span></a></li>
+								<li><a href="{{route('login')}}" class="link-kumya active"><span data-letters="Entrar">Entrar</span></a></li>
 							</ul>	
 							<div class="clearfix"> </div>
 						</div>
