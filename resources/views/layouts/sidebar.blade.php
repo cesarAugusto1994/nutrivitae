@@ -3,7 +3,7 @@
                 <ul class="nav" id="side-menu">
                     <li class="nav-header">
                         <div class="dropdown profile-element"> <span>
-                            <img alt="image" class="img-circle" src="admin/img/profile_small.jpg" />
+                            <img alt="image" class="img-circle" src="{{asset('admin/img/profile_small.jpg')}}" />
                              </span>
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">{{ Auth::user()->name }}</strong>
@@ -21,13 +21,13 @@
                         </div>
                     </li>
                     <li class="active">
-                        <a href="{{route('home')}}"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboard</span> </a>
+                        <a href="{{route('home')}}"><i class="fa fa-th-large"></i> <span class="nav-label">Painel</span> </a>
                     </li>
                     <li>
                         <a href="{{route('consultas')}}"><i class="fa fa-calendar"></i> <span class="nav-label">Consultas</span></a>
                     </li>
                     <li>
-                        <a href="{{route('pacientes')}}"><i class="fa fa-apple"></i> <span class="nav-label">Pacientes</span></a>
+                        <a href="{{route('patients')}}"><i class="fa fa-cogs"></i> <span class="nav-label">Pacientes</span></a>
                     </li>
                     <li>
                         <a href="{{route('consultas')}}"><i class="fa fa-apple"></i> <span class="nav-label">Alimentos</span></a>

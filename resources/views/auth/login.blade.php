@@ -7,10 +7,10 @@
         <div>
             <div>
 
-                <h1 class="logo-name">NV+</h1>
+                <h1 class="logo-name">Rk+</h1>
 
             </div>
-            <h3>Bem vindo ao Nutri Vitae</h3>
+            <h3>Bem vindo ao Reduk</h3>
             <form class="m-t" method="POST" role="form" action="{{ route('login') }}">
             {{ csrf_field() }}
                 <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">

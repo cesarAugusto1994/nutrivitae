@@ -19,15 +19,17 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-//Route::get('/pacientes', 'PacientesController@index')->name('pacientes');
-Route::post('/pacientes/form/save', 'PacientesController@adicionar')->name('pacientes_form_save');
 
 Route::get('/consultas', function () {
     return view('admin.consultas');
 })->name('consultas');
 
-Route::get('/pacientes', function () {
-    return view('admin.pacientes');
-})->name('pacientes');
+
+Route::get('patients', 'PatientsController@index')->name('patients');
+Route::get('/patients/create/form', 'PatientsController@create')->name('patient_create');
+Route::get('/patient/{id}', 'PatientsController@show')->name('patient_show');
+
+Route::post('/patients/store', 'PatientsController@store')->name('patients_store');
+
 
 

@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Nutri Vitae | Register</title>
+    <title>Reduk | Register</title>
 
     <link href="admin/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.css" rel="stylesheet">
@@ -16,7 +16,13 @@
 
 </head>
 
-<body class="gray-bg">
+<body class="gray-bg" style="
+
+        background-image: url('{{asset('admin/img/RedukLogo/LogoMonocromatico.png')}}');
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        ">
 
 @yield('content')
 

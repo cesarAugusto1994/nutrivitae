@@ -74,8 +74,6 @@
             </div>
             <div class="modal-body">
 
-
-
                 <div class="col-md-6">
                     <div class="contact-box">
                         <a href="javascrip:void;">
@@ -219,6 +217,12 @@
 
 
         $("#form-cadastrar-paciente").submit(function (e) {
+
+            $('#form-adicionar-consulta').modal({
+                keyboard: false
+            });
+
+            return false;
 
             var form = $(this).serialize();
 
