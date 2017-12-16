@@ -8,12 +8,12 @@
 	Smart phone Compatible web template, free web designs for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 
-<link href="css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
-<link href="css/style.css" type="text/css" rel="stylesheet" media="all">
-<link rel="stylesheet" href="css/prettySticky.css" type="text/css">
-<link href="css/font-awesome.css" rel="stylesheet"> 
+<link href="{{asset('css/bootstrap.css')}}" type="text/css" rel="stylesheet" media="all">
+<link href="{{asset('css/style.css')}}" type="text/css" rel="stylesheet" media="all">
+<link rel="stylesheet" href="{{asset('css/prettySticky.css')}}" type="text/css">
+<link href="{{asset('css/font-awesome.css')}}" rel="stylesheet">
 
-<script src="js/jquery-1.11.1.min.js"></script> 
+<script src="{{asset('js/jquery-1.11.1.min.js')}}"></script>
 
 </head>
 <body>
@@ -150,7 +150,7 @@
 		</div>
 	</div>
 
-	<script src="js/prettySticky.js"></script>
-    <script src="js/bootstrap.js"></script>
+	<script src="{{asset('js/prettySticky.js')}}js/prettySticky.js"></script>
+    <script src="{{asset('js/bootstrap.js')}}js/bootstrap.js"></script>
 </body>
 </html>
