@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Patient;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Validator;
+use Request as Req;
+use Symfony\Component\HttpFoundation\Response;
 
 class PatientsController extends Controller
 {
@@ -108,7 +110,31 @@ class PatientsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        try {
+            $patient = Patient::find($id);
+
+            $field = Req::input('field');
+            $value = Req::input('value');
+
+            $patient->{$field} = $value;
+
+            $patient->save();
+
+            return new \Illuminate\Http\Response(
+                [
+                    'class' => 'success',
+                    'message' => 'Salvo Com sucesso',
+                ]
+            ) ;
+
+        } catch(\Exception $e) {
+            return new \Illuminate\Http\Response(
+                [
+                    'class' => 'error',
+                    'message' => $e->getMessage(),
+                ]
+            );
+        }
     }
 
     /**

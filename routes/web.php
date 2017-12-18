@@ -11,25 +11,18 @@
 |
 */
 
-Route::get('/', function () {
-    return view('inicio');
-});
+use \Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
-
-Route::get('/consultas', function () {
-    return view('admin.consultas');
-})->name('consultas');
-
 
 Route::get('patients', 'PatientsController@index')->name('patients');
 Route::get('/patients/create/form', 'PatientsController@create')->name('patient_create');
 Route::get('/patient/{id}', 'PatientsController@show')->name('patient_show');
 
 Route::post('/patients/store', 'PatientsController@store')->name('patients_store');
+Route::patch('/patient/{id}/update', 'PatientsController@update')->name('patient_update');
 
 
 

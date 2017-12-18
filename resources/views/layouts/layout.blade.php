@@ -796,9 +796,8 @@
 </div>
 
 <script>
-    // Config box
 
-    var localStorageSupport = window.localStorage;
+    const localStorageSupport = window.localStorage;
 
     // Enable/disable fixed top navbar
     $('#fixednavbar').click(function (){

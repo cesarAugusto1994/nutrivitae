@@ -20,8 +20,8 @@
                             <div class="field-content editable editable-enum editable-click"
                                  data-name="gender" data-pk="29647"
                                  data-source="[{&quot;value&quot;:0,&quot;text&quot;:&quot;Masculino&quot;},{&quot;value&quot;:1,&quot;text&quot;:&quot;Feminino&quot;},{&quot;value&quot;:2,&quot;text&quot;:&quot;Outro&quot;}]"
-                                 data-url="/remote/editables/professionals/patients/29647"
-                                 data-value="0">Masculino
+                                 data-url="{{ route('patient_update', ['id' => $patient->id]) }}"
+                                 data-value="1">{{$patient->gender}}
                             </div>
                             <div class="field-action editable-closed action-edit"><i
                                         class="material-icons md-18">keyboard_arrow_down</i>

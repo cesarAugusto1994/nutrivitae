@@ -30,85 +30,91 @@
 
     <div class="wrapper wrapper-content animated fadeInRight">
         <div class="row">
-        <div class="col-lg-12">
-            <div class="ibox float-e-margins">
-                <div class="ibox-title">
-                    <h5>Formulario </h5>
-                </div>
-                <div class="ibox-content">
+            <div class="col-lg-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>Formulario </h5>
+                    </div>
+                    <div class="ibox-content">
 
-                    <form method="POST" action="{{route('patients_store')}}">
-                        {{  csrf_field() }}
+                        <form method="POST" action="{{route('patients_store')}}">
+                            {{  csrf_field() }}
 
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Nome Completo</label>
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                    <input type="text" name="name" class="form-control">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Nome Completo</label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                        <input type="text" name="name" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Data Nascimento</label>
+                                    <div class="input-group date">
+                                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                        <input id="nascimento" name="birth" type="text"
+                                               class="form-control" data-provide="datepicker"
+                                               data-date-format="mm/dd/yyyy">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Naturalidade</label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-flag"></i></span>
+                                        <input type="text" name="from" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Telefone</label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                                        <input type="text" name="phone" class="form-control"
+                                               data-mask="(99) 99999-9999">
+                                    </div>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label>Data Nascimento</label>
-                                <div class="input-group date">
-                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                    <input id="nascimento" name="birth" type="text"
-                                           class="form-control" data-provide="datepicker" data-date-format="mm/dd/yyyy">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label>Naturalidade</label>
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-flag"></i></span>
-                                    <input type="text" name="from" class="form-control">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label>Telefone</label>
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-phone"></i></span>
-                                    <input type="text" name="phone" class="form-control" data-mask="(99) 99999-9999">
-                                </div>
-                            </div>
-                        </div>
 
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Genero</label>
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-male"></i></span>
-                                    <input type="text" name="gender" class="form-control">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Genero</label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-male"></i></span>
+                                        <select class="form-control m-b" name="gender">
+                                            <option value="0">Masculino</option>
+                                            <option value="1">Feminino</option>
+                                            <option value="2">Outros</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Ocupacao</label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-briefcase"></i></span>
+                                        <input type="text" name="occupation" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>CEP</label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
+                                        <input type="text" name="zip" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>E-mail</label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-at"></i></span>
+                                        <input type="text" name="email" class="form-control">
+                                    </div>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label>Ocupacao</label>
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-briefcase"></i></span>
-                                    <input type="text" name="occupation" class="form-control">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label>CEP</label>
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
-                                    <input type="text" name="zip" class="form-control">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label>E-mail</label>
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-at"></i></span>
-                                    <input type="text" name="email" class="form-control">
-                                </div>
-                            </div>
-                        </div>
-                        <button type="button" class="btn btn-white" data-dismiss="modal">Fechar</button>
-                        <button type="submit" class="btn btn-primary">Adicionar</button>
-                    </form>
+                            <button type="button" class="btn btn-white" data-dismiss="modal">Fechar</button>
+                            <button type="submit" class="btn btn-primary">Adicionar</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
     </div>
 
 

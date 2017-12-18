@@ -3,7 +3,7 @@
 @section('css')
     <style>
         .input-group-addon {
-            min-width: 200px;
+            min-width: 40px;
             text-align: left;
         }
     </style>
@@ -99,7 +99,7 @@
             <div class="col-lg-12">
                 <div class="tabs-container">
 
-                    <div class="tabs-left" id="tabs">
+                    <div class="tabs" id="tabs">
                         <ul class="nav nav-tabs" id="tab">
                             <li class="active"><a data-toggle="tab" href="#tab-1"> Perfil</a></li>
                             <li class=""><a data-toggle="tab" href="#tab-2">Informações</a></li>
@@ -116,7 +116,6 @@
                                 <div class="panel-body">
 
                                     @include('admin.patients.includes.profile-index')
-
 
                                 </div>
                             </div>

@@ -24,14 +24,30 @@
                         <a href="{{route('home')}}"><i class="fa fa-th-large"></i> <span class="nav-label">Painel</span> </a>
                     </li>
                     <li>
-                        <a href="{{route('consultas')}}"><i class="fa fa-calendar"></i> <span class="nav-label">Consultas</span></a>
+                        <a href="{{route('patients')}}"><i class="fa fa-calendar"></i> <span class="nav-label">Consultas</span></a>
                     </li>
                     <li>
                         <a href="{{route('patients')}}"><i class="fa fa-cogs"></i> <span class="nav-label">Pacientes</span></a>
                     </li>
                     <li>
-                        <a href="{{route('consultas')}}"><i class="fa fa-apple"></i> <span class="nav-label">Alimentos</span></a>
+                        <a href="{{route('patients')}}"><i class="fa fa-apple"></i> <span class="nav-label">Mensagens</span></a>
                     </li>
+                    <li>
+                        <a href="{{route('patients')}}"><i class="fa fa-apple"></i> <span class="nav-label">Alimentos</span></a>
+                    </li>
+                    <li>
+                        <a href="{{route('patients')}}"><i class="fa fa-apple"></i> <span class="nav-label">Receitas</span></a>
+                    </li>
+                    <li>
+                        <a href="{{route('patients')}}"><i class="fa fa-apple"></i> <span class="nav-label">Substituições</span></a>
+                    </li>
+                    <li>
+                        <a href="{{route('patients')}}"><i class="fa fa-apple"></i> <span class="nav-label">Modelos</span></a>
+                    </li>
+                    <li>
+                        <a href="{{route('patients')}}"><i class="fa fa-apple"></i> <span class="nav-label">Atividades</span></a>
+                    </li>
+
                 </ul>
 
             </div>

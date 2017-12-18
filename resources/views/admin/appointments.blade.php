@@ -14,10 +14,10 @@
 
 <div class="row wrapper border-bottom white-bg page-heading">
     <div class="col-lg-10">
-        <h2>Consultas</h2>
+        <h2>Suas consultas</h2>
         <ol class="breadcrumb">
             <li>
-                <a href="{{route('home')}}">Dashboard</a>
+                <a href="{{route('home')}}">Home</a>
             </li>
             <li class="active">
                 <strong>Consultas</strong>
@@ -41,7 +41,7 @@
 
             <div class="ibox float-e-margins">
                 <div class="ibox-content">
-                    <h2>Consultas de Hoje</h2>
+                    <h2>Proximas Consultas</h2>
                 </div>
             </div>
 

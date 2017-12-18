@@ -24,7 +24,7 @@ class CreatePatientsTable extends Migration
             $table->string('from');
             $table->string('address')->default();
             $table->string('phone');
-            $table->string('gender');
+            $table->tinyInteger('gender');
             $table->string('occupation');
             $table->integer('zip');
             $table->string('email')->unique();
