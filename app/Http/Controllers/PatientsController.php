@@ -116,23 +116,22 @@ class PatientsController extends Controller
             $field = Req::input('field');
             $value = Req::input('value');
 
-            $patient->{$field} = $value;
+            //$patient->{$field} = $value;
 
             $patient->save();
 
-            return new \Illuminate\Http\Response(
+            return response()->json(
                 [
                     'class' => 'success',
                     'message' => 'Salvo Com sucesso',
-                ]
-            ) ;
+                ], 500
+            )->header('Content-Type', 'text/plain'); ;
 
         } catch(\Exception $e) {
-            return new \Illuminate\Http\Response(
-                [
+            return response()->json([
                     'class' => 'error',
-                    'message' => $e->getMessage(),
-                ]
+                    'message' => 'Error',
+                ], 500
             );
         }
     }

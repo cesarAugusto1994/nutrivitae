@@ -18,10 +18,12 @@
                         <div class="field-title">Gênero</div>
                         <div class="field field-editable field-select">
                             <div class="field-content editable editable-enum editable-click"
-                                 data-name="gender" data-pk="29647"
+                                 data-name="gender" data-pk="{{$patient->id}}"
                                  data-source="[{&quot;value&quot;:0,&quot;text&quot;:&quot;Masculino&quot;},{&quot;value&quot;:1,&quot;text&quot;:&quot;Feminino&quot;},{&quot;value&quot;:2,&quot;text&quot;:&quot;Outro&quot;}]"
                                  data-url="{{ route('patient_update', ['id' => $patient->id]) }}"
-                                 data-value="1">{{$patient->gender}}
+                                 data-value="1"
+                                 data-token="{{csrf_token()}}">{{$patient->gender}}
+
                             </div>
                             <div class="field-action editable-closed action-edit"><i
                                         class="material-icons md-18">keyboard_arrow_down</i>
@@ -38,7 +40,7 @@
                             <div class="field-content editable editable-date editable-click"
                                  data-name="birthdate" data-pk="29647"
                                  data-template="DD MMM YYYY"
-                                 data-url="/remote/editables/professionals/patients/29647"
+                                 data-url="{{ route('patient_update', ['id' => $patient->id]) }}"
                                  data-value="2017-11-27"
                                  data-viewformat="DD/MM/YYYY">
                                 27/11/2017&nbsp;<span>(2 semanas)</span></div>
