@@ -2,7 +2,11 @@
 
 @section('content')
 
+    <div class="row  border-bottom white-bg dashboard-header">
+        Seu DashBoard
+    </div>
 
+<!--
     <div class="row  border-bottom white-bg dashboard-header">
 
             <div class="col-sm-3">
@@ -432,12 +436,12 @@
             </div>
         </div>
     </div>
-
+-->
 @endsection
 
 @section('js')
 
-
+<!--
     <script>
         $(document).ready(function() {
             setTimeout(function() {
@@ -572,6 +576,6 @@
 
         });
     </script>
-
+-->
 
 @endsection

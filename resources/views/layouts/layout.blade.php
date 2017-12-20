@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Nutri | Dashboard</title>
+    <title>{{ config('app.name', 'Reduk') }} | Dashboard</title>
 
     <link href="{{asset('public/admin/css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{asset('css/font-awesome.css')}}" rel="stylesheet">
