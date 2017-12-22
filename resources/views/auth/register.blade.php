@@ -5,8 +5,15 @@
 
 		<div class="col-md-6">
 
+			<br/>
+			<br/>
+			<br/>
+
 			<img style="margin-top:20%;max-width:350px;max-height:350px;" src="{{asset('admin/img/RedukLogo/LogoHorizontal.png')}}" alt="" />
 
+			<br/>
+			<br/>
+			<br/>
 		</div>
 		<div class="col-md-6">
 			<div class="ibox-content">

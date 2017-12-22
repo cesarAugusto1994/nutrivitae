@@ -3,7 +3,7 @@
 <div class="loginColumns animated fadeInDown">
 	<div class="row">
 
-		<div class="col-md-6">
+		<div class="col-sm-12 col-md-6">
 
 			<br/>
 			<br/>
@@ -11,8 +11,12 @@
 
 			<img style="max-width:350px;max-height:350px;" src="{{asset('admin/img/RedukLogo/LogoHorizontal.png')}}" alt="" />
 
+			<br/>
+			<br/>
+			<br/>
+			
 		</div>
-		<div class="col-md-6">
+		<div class="col-sm-12 col-md-6">
 			<div class="ibox-content">
 				<h2 class="text-center">Login</h2>
 				<form class="m-t" method="POST" role="form" action="{{ route('login') }}">
