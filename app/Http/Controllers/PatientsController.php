@@ -10,15 +10,10 @@ use Symfony\Component\HttpFoundation\Response;
 
 class PatientsController extends Controller
 {
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
-    protected function validator(array $data)
+
+    public function dataValidate()
     {
-        return \Illuminate\Support\Facades\Validator::make($data, [
+        return [
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:pacientes',
             'birth' => 'required|string|max:15',
@@ -27,7 +22,18 @@ class PatientsController extends Controller
             'gender' => 'required|string|max:15',
             'occupation' => 'required|string|max:255',
             'zip' => 'required|integer|max:8',
-        ]);
+        ];
+    }
+
+    /**
+     * Get a validator for an incoming registration request.
+     *
+     * @param  array  $data
+     * @return \Illuminate\Contracts\Validation\Validator
+     */
+    protected function validator(array $data, array $validations)
+    {
+        return \Illuminate\Support\Facades\Validator::make($data, $validations);
     }
 
     /**
@@ -61,7 +67,13 @@ class PatientsController extends Controller
         $data = $request->request->all();
         $birth = \DateTime::createFromFormat('d/m/Y', $data['birth']);
 
-        $this->validator($data);
+        $validator = $this->validator($data, $this->dataValidate());
+
+        if ($validator->fails()) {
+            return back()
+                ->withErrors($validator)
+                ->withInput();
+        }
 
         $data = [
             'name' => $data['name'],
@@ -113,25 +125,72 @@ class PatientsController extends Controller
         try {
             $patient = Patient::find($id);
 
-            $field = Req::input('field');
+            $name = Req::input('name');
             $value = Req::input('value');
 
-            //$patient->{$field} = $value;
+            echo $name;exit;
 
+            $patient->{$name} = $value;
+
+            //$patient->save();
+
+            return response()->json(
+                [
+                    'class' => 'success',
+                    'message' => 'Salvo Com sucesso',
+                ]
+            );
+
+        } catch(\Exception $e) {
+            return response()->json([
+                    'class' => 'error',
+                    'message' => 'Error',
+                ]
+            );
+        }
+    }
+
+
+    public function updateFromAjax($id)
+    {
+        try {
+            $patient = Patient::find($id);
+
+            $name = Req::get('name');
+            $value = Req::get('value');
+
+            $validator = $this->validator([
+                $name => $value
+            ], array_filter($this->dataValidate(), function($item) use ($name) {
+                return $item[$name];
+            }));
+
+            if ($validator->fails()) {
+
+                return response()->json([
+                        'class' => 'error',
+                        'message' => $validator,
+                    ]
+                );
+
+            }
+
+            $patient->{$name} = $value;
+            
             $patient->save();
 
             return response()->json(
                 [
                     'class' => 'success',
                     'message' => 'Salvo Com sucesso',
-                ], 500
-            )->header('Content-Type', 'text/plain'); ;
+                ]
+            );
 
         } catch(\Exception $e) {
             return response()->json([
                     'class' => 'error',
-                    'message' => 'Error',
-                ], 500
+                    'message' => $e->getMessage(),
+                ]
             );
         }
     }

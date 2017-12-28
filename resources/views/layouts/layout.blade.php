@@ -22,7 +22,7 @@
 
 </head>
 
-<body>
+<body class="pace-done skin-1">
 
 <div id="wrapper">
 

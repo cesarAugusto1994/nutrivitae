@@ -22,7 +22,8 @@ Route::get('/patients/create/form', 'PatientsController@create')->name('patient_
 Route::get('/patient/{id}', 'PatientsController@show')->name('patient_show');
 
 Route::post('/patients/store', 'PatientsController@store')->name('patients_store');
-Route::patch('/patient/{id}/update', 'PatientsController@update')->name('patient_update');
+Route::post('/patient/{id}/update-ajax', 'PatientsController@updateFromAjax')->name('patient_update_ajax');
+Route::post('/patient/{id}/update', 'PatientsController@updateFromAjax')->name('patient_update');
 
 
 

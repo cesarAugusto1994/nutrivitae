@@ -24,7 +24,7 @@
                         <a href="{{route('patient_show', ['id' => $patient->id])}}">
                             <div class="col-sm-4">
                                 <div class="text-center">
-                                    <img alt="image" class="img-circle m-t-xs img-responsive" src="{{asset('admin/img/a3.jpg')}}">
+                                    <img alt="image" class="img-circle m-t-xs img-responsive" src="{{ Gravatar::get($patient->email) }}">
                                     <div class="m-t-xs font-bold">{{$patient->occupation}}</div>
                                 </div>
                             </div>
@@ -36,7 +36,6 @@
                                 <address>
                                     <strong>{{$patient->birth}}</strong><br>
                                     {{$patient->email}}<br>
-                                    {{$patient->zip}}<br>
                                     <abbr title="Phone">P:</abbr> {{$patient->phone}}
                                 </address>
                             </div>

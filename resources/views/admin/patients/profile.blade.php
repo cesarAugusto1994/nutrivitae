@@ -19,7 +19,7 @@
                     <a href="/">Home</a>
                 </li>
                 <li>
-                    <a>Paciente</a>
+                    <a href="{{route('patients')}}">Paciente</a>
                 </li>
                 <li class="active">
                     <strong>Perfil do Paciente</strong>
@@ -36,7 +36,7 @@
             <div class="col-md-6">
 
                 <div class="profile-image">
-                    <img src="{{asset('admin/img/a4.jpg')}}" class="img-circle circle-border m-b-md" alt="profile">
+                    <img src="{{ Gravatar::get($patient->email) }}" class="img-circle circle-border m-b-md" alt="profile">
                 </div>
                 <div class="profile-info">
                     <div class="">
@@ -95,6 +95,8 @@
 
         <div class="row m-t-lg">
             <div class="col-lg-12">
+                {{csrf_field()}}
+                <input type="hidden" name="user" value="{{$patient->id}}"/>
                 <div class="tabs-container">
                     <div class="tabs" id="tabs">
                         <ul class="nav nav-tabs" id="tab">
@@ -114,95 +116,100 @@
                                 <div class="panel-body">
 
                                     <div class="row">
-                                        <div class="col-lg-12">
-                                            <div class="ibox float-e-margins">
-                                                <div class="ibox-content">
+                                        <div class="col-lg-12 well">
 
-                                                    <h1 class="title">Informações</h1>
+                                            <h1 class="title p-xs">&nbsp;Informações</h1>
 
-                                                    <form method="POST" action="{{route('patients_store')}}">
-                                                        {{  csrf_field() }}
+                                            <form method="POST" action="{{route('patients_store')}}">
+                                                {{  csrf_field() }}
 
-                                                        <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label>Nome Completo</label>
-                                                                <div class="input-group">
-                                                                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                                                    <input type="text" name="name" class="form-control" value="{{$patient->name}}">
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label>Data Nascimento</label>
-                                                                <div class="input-group date">
-                                                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                                                    <input id="nascimento" name="birth" type="text"
-                                                                           class="form-control" data-provide="datepicker"
-                                                                           data-date-format="mm/dd/yyyy" value="{{$patient->birth}}">
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label>Naturalidade</label>
-                                                                <div class="input-group">
-                                                                    <span class="input-group-addon"><i class="fa fa-flag"></i></span>
-                                                                    <input type="text" name="from" class="form-control" value="{{$patient->from}}">
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label>Endereço</label>
-                                                                <div class="input-group">
-                                                                    <span class="input-group-addon"><i class="fa fa-house"></i></span>
-                                                                    <input type="text" name="from" class="form-control">
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label>Telefone</label>
-                                                                <div class="input-group">
-                                                                    <span class="input-group-addon"><i class="fa fa-phone"></i></span>
-                                                                    <input type="text" name="phone" class="form-control"
-                                                                           data-mask="(99) 99999-9999" value="{{$patient->phone}}">
-                                                                </div>
-                                                            </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group {!! $errors->has('name') ? 'has-error' : '' !!}">
+                                                        <label>Nome Completo</label>
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                                            <input type="text" name="name" class="form-control" value="{{$patient->name}}">
+                                                            {!! $errors->first('name', '<p class="help-block">:message</p>') !!}
                                                         </div>
-
-                                                        <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label>Genero</label>
-                                                                <div class="input-group">
-                                                                    <span class="input-group-addon"><i class="fa fa-male"></i></span>
-                                                                    <select class="form-control m-b" name="gender">
-                                                                        <option value="0">Masculino</option>
-                                                                        <option value="1">Feminino</option>
-                                                                        <option value="2">Outros</option>
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label>Ocupacao</label>
-                                                                <div class="input-group">
-                                                                    <span class="input-group-addon"><i class="fa fa-briefcase"></i></span>
-                                                                    <input type="text" name="occupation" class="form-control" value="{{$patient->occupation}}">
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label>CEP</label>
-                                                                <div class="input-group">
-                                                                    <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
-                                                                    <input type="text" name="zip" class="form-control" value="{{$patient->zip}}">
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label>E-mail</label>
-                                                                <div class="input-group">
-                                                                    <span class="input-group-addon"><i class="fa fa-at"></i></span>
-                                                                    <input type="text" name="email" class="form-control" value="{{$patient->email}}">
-                                                                </div>
-                                                            </div>
+                                                    </div>
+                                                    <div class="form-group {!! $errors->has('birth') ? 'has-error' : '' !!}">
+                                                        <label>Data Nascimento</label>
+                                                        <div class="input-group date">
+                                                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                                            <input id="nascimento" name="birth" type="text"
+                                                                    class="form-control" data-provide="datepicker"
+                                                                    data-date-format="mm/dd/yyyy" value="{{$patient->birth}}">
+                                                                    {!! $errors->first('birth', '<p class="help-block">:message</p>') !!}
                                                         </div>
-                                                        <button type="button" class="btn btn-white" data-dismiss="modal">Fechar</button>
-                                                        <button type="submit" class="btn btn-primary">Adicionar</button>
-                                                    </form>
+                                                    </div>
+                                                    <div class="form-group {!! $errors->has('from') ? 'has-error' : '' !!}">
+                                                        <label>Naturalidade</label>
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon"><i class="fa fa-flag"></i></span>
+                                                            <input type="text" name="from" class="form-control" value="{{$patient->from}}">
+                                                            {!! $errors->first('from', '<p class="help-block">:message</p>') !!}
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group {!! $errors->has('address') ? 'has-error' : '' !!}">
+                                                        <label>Endereço</label>
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon"><i class="fa fa-house"></i></span>
+                                                            <input type="text" name="address" class="form-control">
+                                                            {!! $errors->first('address', '<p class="help-block">:message</p>') !!}
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group {!! $errors->has('phone') ? 'has-error' : '' !!}">
+                                                        <label>Telefone</label>
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                                                            <input type="text" name="phone" class="form-control"
+                                                                    data-mask="(99) 99999-9999" value="{{$patient->phone}}">
+                                                                    {!! $errors->first('phone', '<p class="help-block">:message</p>') !!}
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>
+
+                                                <div class="col-md-6">
+                                                    <div class="form-group {!! $errors->has('gender') ? 'has-error' : '' !!}">
+                                                        <label>Genero</label>
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon"><i class="fa fa-male"></i></span>
+                                                            <select class="form-control m-b" name="gender">
+                                                                <option value="0">Masculino</option>
+                                                                <option value="1">Feminino</option>
+                                                                <option value="2">Outros</option>
+                                                            </select>
+                                                            {!! $errors->first('gender', '<p class="help-block">:message</p>') !!}
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group {!! $errors->has('occupation') ? 'has-error' : '' !!}">
+                                                        <label>Ocupacao</label>
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon"><i class="fa fa-briefcase"></i></span>
+                                                            <input type="text" name="occupation" class="form-control" value="{{$patient->occupation}}">
+                                                            {!! $errors->first('occupation', '<p class="help-block">:message</p>') !!}
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group {!! $errors->has('zip') ? 'has-error' : '' !!}">
+                                                        <label>CEP</label>
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
+                                                            <input type="text" name="zip" class="form-control" value="{{$patient->zip}}">
+                                                            {!! $errors->first('zip', '<p class="help-block">:message</p>') !!}
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group {!! $errors->has('email') ? 'has-error' : '' !!}">
+                                                        <label>E-mail</label>
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon"><i class="fa fa-at"></i></span>
+                                                            <input type="text" name="email" class="form-control" value="{{$patient->email}}">
+                                                            {!! $errors->first('email', '<p class="help-block">:message</p>') !!}
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </form>
+
                                         </div>
                                     </div>
 
@@ -1102,10 +1109,56 @@
     <script>
         $(document).ready(function () {
 
+            $(".form-control").change(function (e) {
+
+                var form = $(this).serialize();
+                var _this = $(this);
+
+                var name = _this.attr('name');
+                var value = _this.val();
+                var _token = $('input[name="_token"]').val();
+                var user = $('input[name="user"]').val();
+
+                //alert(name);
+                
+                $.ajax({
+                    type: "POST",
+                    url: "/patient/" + user + "/update-ajax?name=" + name + "&value=" + value + "&_token=" + _token,
+                    data: form,
+                    success: function (data) {
+
+                        setTimeout(function() {
+                            toastr.options = {
+                                closeButton: true,
+                                progressBar: true,
+                                showMethod: 'slideDown',
+                                timeOut: 4000
+                            };
+                            toastr.success('Sucesso', data.message);
+
+                        }, 1300);
+
+                    },
+                     error: function (data) {
+
+                        setTimeout(function() {
+                            toastr.options = {
+                                closeButton: true,
+                                progressBar: true,
+                                showMethod: 'slideDown',
+                                timeOut: 4000
+                            };
+                            toastr.error('Sucesso', data.message);
+
+                        }, 1300);
+
+                    }
+                })
+                
+
+            });
 
         });
-
-
     </script>
 
 @endsection

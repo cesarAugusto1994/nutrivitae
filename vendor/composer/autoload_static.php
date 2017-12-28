@@ -97,6 +97,7 @@ class ComposerStaticInitf914683cbcfdbadee39836f96624a8a0
         'C' => 
         array (
             'Cron\\' => 5,
+            'Creativeorange\\Gravatar\\' => 24,
             'Carbon\\' => 7,
         ),
         'A' => 
@@ -256,6 +257,10 @@ class ComposerStaticInitf914683cbcfdbadee39836f96624a8a0
         array (
             0 => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron',
         ),
+        'Creativeorange\\Gravatar\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/creativeorange/gravatar/src',
+        ),
         'Carbon\\' => 
         array (
             0 => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon',
@@ -314,12 +319,15 @@ class ComposerStaticInitf914683cbcfdbadee39836f96624a8a0
         'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
+        'App\\Http\\Controllers\\PatientsController' => __DIR__ . '/../..' . '/app/Http/Controllers/PatientsController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
         'App\\Http\\Middleware\\RedirectIfAuthenticated' => __DIR__ . '/../..' . '/app/Http/Middleware/RedirectIfAuthenticated.php',
         'App\\Http\\Middleware\\TrimStrings' => __DIR__ . '/../..' . '/app/Http/Middleware/TrimStrings.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Paciente' => __DIR__ . '/../..' . '/app/Paciente.php',
+        'App\\Patient' => __DIR__ . '/../..' . '/app/Patient.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
@@ -331,6 +339,10 @@ class ComposerStaticInitf914683cbcfdbadee39836f96624a8a0
         'Carbon\\Carbon' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Carbon.php',
         'Carbon\\CarbonInterval' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/CarbonInterval.php',
         'Carbon\\Exceptions\\InvalidDateException' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Exceptions/InvalidDateException.php',
+        'Creativeorange\\Gravatar\\Exceptions\\InvalidEmailException' => __DIR__ . '/..' . '/creativeorange/gravatar/src/Exceptions/InvalidEmailException.php',
+        'Creativeorange\\Gravatar\\Facades\\Gravatar' => __DIR__ . '/..' . '/creativeorange/gravatar/src/Facades/Gravatar.php',
+        'Creativeorange\\Gravatar\\Gravatar' => __DIR__ . '/..' . '/creativeorange/gravatar/src/Gravatar.php',
+        'Creativeorange\\Gravatar\\GravatarServiceProvider' => __DIR__ . '/..' . '/creativeorange/gravatar/src/GravatarServiceProvider.php',
         'Cron\\AbstractField' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/AbstractField.php',
         'Cron\\CronExpression' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/CronExpression.php',
         'Cron\\DayOfMonthField' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/DayOfMonthField.php',
